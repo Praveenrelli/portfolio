@@ -1,0 +1,1002 @@
+@import url('https://fonts.googleapis.com/css2? family=Poppins:wght@300;400;500;600; 700;800;9008 display=swap') ;
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'poppins',sans-serif;
+
+}
+
+body {
+    background-color: #0c1022;
+    color: #fff;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay : calc(.2s*var(--i));
+}
+
+.navbar a.active,
+.navbar a:hover {
+    background: linear-gradient(45deg, #f06, #3cf);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+} 
+
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+    padding: 70px 10% 0;
+
+}
+
+.home-content {
+    max-width: 500px;
+    margin-left: -30px;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay : .7s;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay : 1s;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 20px 0 40px;
+    animation: slideLeft 1s ease forwards;
+    animation-delay : 1.3s;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 48px;
+    border-radius: 40px;
+    font-size: 19px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    background: linear-gradient(270deg, #f06, #3cf, #f06, #3cf);
+    background-size: 400% 400%;
+    animation: btnGlow 3s linear infinite;
+    border: none;
+    box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    transition: box-shadow 0.3s, transform 0.2s;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideTop 1s ease forwards, btnGlow 3s linear infinite;
+    animation-delay: 1.8s, 0s;
+}
+
+@keyframes btnGlow {
+    0% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    }
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 40px #f06, 0 0 80px #3cf;
+    }
+    100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    }
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px #3cf, 0 0 120px #f06;
+}
+
+.home-sci a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #f06,#3cf);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 20px 0;
+    z-index: 1;
+}
+
+
+.home-sci {
+    position: absolute; /* Allow positioning relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 20px; /* Move to the left side with some spacing */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    gap: 10px; /* Add spacing between buttons */
+}
+
+/* Fix for .home-content */
+.home-content {
+    max-width: 500px;
+    margin: 0 auto; /* Center horizontally */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add some padding for spacing */
+}
+
+.home-content h1 {
+    font-size: 3rem; /* Adjust font size for better visibility */
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h3 {
+    font-size: 1.8rem; /* Adjust font size */
+    font-weight: 700;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content p {
+    font-size: 1rem; /* Adjust font size */
+    margin: 20px 0 40px;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-sci {
+        top: auto;
+        bottom: 20px; /* Move to the bottom for smaller screens */
+        left: 10px; /* Adjust left spacing */
+        transform: none; /* Remove vertical centering */
+    }
+
+    .home-content {
+        padding: 10px;
+    }
+
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .home-content p {
+        font-size: 0.9rem;
+    }
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 48px;
+    border-radius: 40px;
+    font-size: 19px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    background: linear-gradient(270deg, #f06, #3cf, #f06, #3cf);
+    background-size: 400% 400%;
+    animation: btnGlow 3s linear infinite;
+    border: none;
+    box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    transition: box-shadow 0.3s, transform 0.2s;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideTop 1s ease forwards, btnGlow 3s linear infinite;
+    animation-delay: 1.8s, 0s;
+}
+
+@keyframes btnGlow {
+    0% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    }
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 40px #f06, 0 0 80px #3cf;
+    }
+    100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 20px #3cf, 0 0 40px #f06;
+    }
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px #3cf, 0 0 120px #f06;
+}
+
+.home-sci {
+    position: absolute; /* Allow positioning relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 20px; /* Move to the left side with some spacing */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    gap: 15px; /* Add spacing between buttons */
+    opacity: 0; /* Start hidden */
+    animation: fadeInLeft 1s ease forwards; /* Add fade-in animation */
+    animation-delay: 1.5s; /* Delay to sync with other animations */
+}
+
+/* Keyframes for fade-in from the left */
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Start slightly off-screen */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at the original position */
+    }
+}
+
+.home-sci a::nth-child(1) {
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay : 2.1s;
+}
+
+/* Hide the about details initially */
+.hidden {
+    display: none;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.home-sci a::nth-child(2) {
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay : 2.1s;
+}
+
+.home-sci a::nth-child(3) {
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay : 2.1s;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f06,#3cf);
+    border-radius: 50%;
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.home-sci a:hover::before {
+    filter: blur(5px);
+
+}
+
+.home-sci a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0c1022;
+    border-radius: 50%;
+    transform: scale(.88);
+    z-index: -1;
+    transition: .5s ease;
+}
+    
+.home-sci a:hover::after {
+    transform: scale(0);
+}
+
+.home-img {
+    width: 410px;
+    height: 410px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards ,floatImage 4s ease-in-out infinite;
+    animation-delay : 2.1s, 3.1s;
+}
+
+.home-img .glowing-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img .glowing-circle::after {
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: #0c1022;
+    border-radius: 50%;
+}
+
+.glowing-circle span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f06,#3cf);
+    border-radius: 50%;
+    animation: circleRotate 5s linear infinite; 
+}
+
+.glowing-circle span::nth-child(1) {
+    filter: blur(10px);
+}
+
+.glowing-circle .image{
+    position: relative;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.image img {
+    position: absolute;
+    top: 50%; /* Center the image vertically */
+    left: 50%; /* Center the image horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100%; /* Ensure the image fills the container */
+    height: 100%; /* Maintain the circular shape */
+    object-fit: cover; /* Crop the image to fit within the circle */
+    border-radius: 50%; /* Ensure the image is circular */
+    border: 10px solid transparent; /* Increase the border size */
+}
+
+/* Keyframes anmiation */
+@keyframes slideTop {
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+ 
+@keyframes slideLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0%{
+        opacity: 0;
+        transform: scale(.5);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-24px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes circleRotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.about {
+    padding: 20px;
+    background: linear-gradient(45deg, #f06, #3cf); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff; /* White text */
+}
+
+.about p {
+    font-size: 1rem;
+    color: #fff; /* White text */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.education-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px;
+    justify-content: center;
+}
+
+.education-box {
+    background: #0c1022; /* Dark background to match the theme */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text */
+    flex: 1 1 30%; /* Take up 30% of the container width */
+    max-width: 300px; /* Limit the maximum width */
+    text-align: left;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 1s ease-in-out forwards; /* Animation */
+}
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Add delay for staggered effect */
+.education-box:nth-child(1) {
+    animation-delay: 0.8s;
+}
+.education-box:nth-child(2) {
+    animation-delay: 1.0s;
+}
+.education-box:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.education-box h4 {
+    font-size: 1.5rem;
+    color: #3cf; /* Light blue for headings */
+    margin-bottom: 10px;
+}
+
+.education-box p {
+    font-size: 1rem;
+    color: #f06; /* Light pink for details */
+    margin-bottom: 8px;
+}
+
+.skills {
+    padding: 20px;
+    background: linear-gradient(45deg, #f06, #3cf); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff; /* White text */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-item {
+    background: #0c1022; /* Dark background to match the theme */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text */
+    flex: 1 1 45%; /* Take up 45% of the container width */
+    max-width: 400px; /* Limit the maximum width */
+    text-align: left;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 1s ease-in-out forwards; /* Animation */
+}
+
+/* Optional: Add delay for staggered effect */
+.skill-item:nth-child(1) {
+    animation-delay: 0.8s;
+}
+.skill-item:nth-child(2) {
+    animation-delay: 1.0s;
+}
+.skill-item:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.skill-item h4 {
+    font-size: 1.5rem;
+    color: #3cf; /* Light blue for headings */
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    color: #f06; /* Light pink for details */
+    margin-bottom: 8px;
+}
+
+.projects, .certifications {
+    padding: 20px;
+    background: linear-gradient(45deg, #f06, #3cf); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.projects h2, .certifications h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff; /* White text */
+}
+
+.projects-container, .certifications-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-item, .certifications-container ul {
+    background: #0c1022; /* Dark background to match the theme */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text */
+}
+
+.project-item h4, .certifications-container h3 {
+    font-size: 1.5rem;
+    color: #3cf; /* Light blue for headings */
+    margin-bottom: 10px;
+}
+
+.project-item p, .certifications-container li {
+    font-size: 0.9rem;
+    color: #f06; /* Light pink for details */
+}
+
+.projects {
+    padding: 20px;
+    background: linear-gradient(45deg, #f06, #3cf); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff; /* White text */
+}
+
+.projects-certifications-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-box , .certifications-box {
+    background: #0c1022; /* Dark background to match the theme */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text */
+    flex: 1 1 45%; /* Take up 45% of the container width */
+    max-width: 500px; /* Limit the maximum width */
+    text-align: left;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 1s ease-in-out forwards; /* Animation */
+}
+
+/* Optional: Add delay for staggered effect */
+.project-box:nth-child(1) {
+    animation-delay: 0.8s;
+}
+.project-box:nth-child(2) {
+    animation-delay: 1.0s;
+}
+.project-box:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.project-box h3, .certifications-box h3 {
+    font-size: 1.5rem;
+    color: #3cf; /* Light blue for headings */
+    margin-bottom: 10px;
+}
+
+.project-box p, .certifications-box li {
+    font-size: 1rem;
+    color: #f06; /* Light pink for details */
+    margin-bottom: 10px;
+}
+
+.certifications-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.certifications-box li {
+    margin-bottom: 8px;
+}
+.certifications-box:nth-child(1) {
+    animation-delay: 0.8s;
+}
+.certifications-box:nth-child(2) {
+    animation-delay: 1.0s;
+}
+.certifications-box:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.contact {
+    padding: 20px;
+    background: linear-gradient(45deg, #f06, #3cf); /* Gradient background */
+    color: #fff; /* White text for contrast */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff; /* White text */
+}
+
+.contact-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-item {
+    background: #0c1022; /* Dark background to match the theme */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text */
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 1s ease-in-out forwards; /* Animation */
+}
+
+
+.contact-item:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.contact-item h3 {
+    font-size: 1.5rem;
+    color: #3cf;
+    margin-bottom: 10px;
+}
+
+.contact-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-item li {
+    font-size: 1rem;
+    color: #f06; 
+    margin-bottom: 8px;
+}
+
+/* For the main heading "Hi, I'm Relli Praveen" */
+.animated-text {
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3cf; /* Default color for the main text */
+    perspective: 1000px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-shadow: none; /* Ensure no shadow is applied */
+}
+
+/* Highlight specific parts of the text */
+.animated-text .highlight {
+    color: #3cf; /* Color for "Relli Praveen" */
+}
+
+/* For the subtext "Frontend Developer" and "Web Developer" */
+.animated-subtext {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f06; /* Color for subtext */
+    perspective: 1000px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-shadow: none; /* Ensure no shadow is applied */
+}
+
+.animated-text span, .animated-subtext span {
+    display: inline-block;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    animation: letterAnimation 0.6s ease forwards;
+    color: #3cf; /* Ensure individual letters also have #3cf color */
+    text-shadow: none; /* Ensure no shadow is applied to individual letters */
+}
+
+@keyframes letterAnimation {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Add to your style.css for better mobile support */
+@media (max-width: 600px) {
+  .header, .navbar, .home-content, .home-img, .about, .skills, .projects, .contact {
+    /* Example adjustments */
+    padding: 10px;
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar a {
+    display: block;
+    margin: 8px 0;
+  }
+  .home-img img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 600px) {
+  .header {
+    padding: 10px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+  .navbar a {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  .home {
+    flex-direction: column;
+    padding: 80px 5% 0;
+    height: auto;
+  }
+  .home-content {
+    margin: 0;
+    padding: 10px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  .home-img {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto 0;
+  }
+  .home-img .glowing-circle,
+  .home-img .glowing-circle::after,
+  .glowing-circle .image {
+    width: 180px !important;
+    height: 180px !important;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .image img {
+    width: 100% !important;
+    height: 100% !important;
+    border-width: 5px;
+  }
+  .home-sci {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    transform: none;
+  }
+  .about,
+  .skills,
+  .projects,
+  .contact {
+    padding: 10px 5px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  .education-container,
+  .skills-container,
+  .projects-certifications-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .education-box,
+  .skill-item,
+  .project-box,
+  .certifications-box {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-item {
+    width: 100%;
+    padding: 10px;
+  }
+  .animated-text {
+    font-size: 1.5rem;
+  }
+  .animated-subtext {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+
